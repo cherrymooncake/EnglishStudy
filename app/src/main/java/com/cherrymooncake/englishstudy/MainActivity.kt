@@ -14,7 +14,7 @@ class MainActivity : FragmentActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, WelcomeFragment()) // <- Проверить имя контейнера!
+                .replace(R.id.nav_host_fragment, WelcomeFragment())
                 .commit()
         }
     }
