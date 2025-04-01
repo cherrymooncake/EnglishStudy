@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph.xml"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/welcomeFragment">
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.cherrymooncake.englishstudy.WelcomeFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_learnFragment"
+            app:destination="@id/learnFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/learnFragment"
+        android:name="com.cherrymooncake.englishstudy.LearnFragment"
+        android:label="Learn"
+        tools:layout="@layout/fragment_learn" >
+        <action
+            android:id="@+id/action_learnFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.cherrymooncake.englishstudy.ResultFragment"
+        android:label="Result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resultFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+
+</navigation>

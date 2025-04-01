@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name" translatable="false">EnglishStudy</string>
+    <string name="button_skip">Skip</string>
+    <string name="title_correct">Correct!</string>
+    <string name="title_wrong">Wrong!</string>
+    <string name="button_continue">Continue</string>
+    <string name="close_image_button" translatable="false">close image button</string>
+    <string name="correct_answer_icon" translatable="false">correct answer icon</string>
+    <string name="welcome_string">Welcome!</string>
+    <string name="start_string">Start</string>
+</resources>
