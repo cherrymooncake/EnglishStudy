@@ -8,4 +8,6 @@
     <string name="correct_answer_icon" translatable="false">correct answer icon</string>
     <string name="welcome_string">Welcome!</string>
     <string name="start_string">Start</string>
+    <string name="restart_string">Restart</string>
+    <string name="congratulations_string">Congratulations! You have learned all the words!</string>
 </resources>

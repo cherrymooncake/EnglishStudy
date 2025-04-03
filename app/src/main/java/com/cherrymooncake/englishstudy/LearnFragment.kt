@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.navigation.fragment.findNavController
 import com.cherrymooncake.englishstudy.databinding.FragmentLearnBinding
 
 class LearnFragment : Fragment() {
@@ -24,12 +23,6 @@ class LearnFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLearnBinding.inflate(inflater, container, false)
-
-        binding.btnFinish.setOnClickListener {
-            // Переход к ResultFragment через NavController
-            findNavController().navigate(R.id.action_learnFragment_to_resultFragment)
-        }
-
         return binding.root
     }
 
@@ -55,7 +48,7 @@ class LearnFragment : Fragment() {
         if (question == null || question.variants.size < NUMBER_OF_ANSWERS) {
             Log.d("QuestionFragment", "No more questions, navigating to ResultFragment")
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, ResultFragment())
+                .replace(R.id.nav_host_fragment, ResultFragment())
                 .commit()
             return
         }

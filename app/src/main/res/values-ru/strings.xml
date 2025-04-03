@@ -6,4 +6,6 @@
     <string name="button_continue">Продолжить</string>
     <string name="welcome_string">Добро пожаловать!</string>
     <string name="start_string">Начать</string>
+    <string name="restart_string">Начать заново</string>
+    <string name="congratulations_string">Поздравляем! Вы изучили все слова!</string>
 </resources>

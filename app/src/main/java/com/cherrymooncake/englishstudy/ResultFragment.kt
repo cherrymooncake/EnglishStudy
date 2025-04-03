@@ -26,7 +26,7 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
 
         binding.btnRestart.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, WelcomeFragment()) // Начать заново
+                .replace(R.id.nav_host_fragment, WelcomeFragment())
                 .commit()
         }
     }
