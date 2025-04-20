@@ -1,5 +1,9 @@
 package com.cherrymooncake.englishstudy
 
+import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+
 data class Word (
     val original: String,
     val translate: String,
@@ -11,27 +15,15 @@ data class Question (
     val correctAnswer: Word,
 )
 
-class LearnWordsTrainer {
+class LearnWordsTrainer(context: Context) {
 
-    private val dictionary: List<Word> = listOf(
-        Word("Galaxy", "Галактика"),
-        Word("Table", "Стол"),
-        Word("Moon", "Луна"),
-        Word("Sun", "Солнце"),
-        Word("Star", "Звезда"),
-        Word("Sky", "Небо"),
-        Word("Blue", "Синий"),
-        Word("Tomato", "Томат"),
-        Word("Pink", "Розовый"),
-        Word("Dog", "Собака"),
-        Word("Cat", "Кот"),
-        Word("Black", "Черный"),
-        Word("Gold", "Золото"),
-        Word("Cherry", "Вишня"),
-        Word("Pie", "Пирог"),
-    )
-
+    //private val dictionary: List<Word> = loadWordsFromAssets(context).shuffled()
     private var currentQuestion: Question? = null
+
+    private val dictionary: List<Word>
+    init {
+        dictionary = loadWordsFromAssets(context).shuffled()
+    }
 
     fun getNextQuestion(): Question? {
         val notLearnedList = dictionary.filter { !it.learned}
@@ -69,6 +61,11 @@ class LearnWordsTrainer {
         } ?: false
     }
 
+    private fun loadWordsFromAssets(context: Context): List<Word> {
+        val json = context.assets.open("words.json").bufferedReader().use { it.readText() }
+        val type = object : TypeToken<List<Word>>() {}.type
+        return Gson().fromJson(json, type)
+    }
 }
 
 const val NUMBER_OF_ANSWERS: Int = 4

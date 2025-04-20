@@ -16,7 +16,9 @@ class LearnFragment : Fragment() {
 
     private var _binding: FragmentLearnBinding? = null
     private val binding get() = _binding!!
-    private val trainer = LearnWordsTrainer()
+
+    private lateinit var trainer: LearnWordsTrainer
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +30,8 @@ class LearnFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        trainer = LearnWordsTrainer(requireContext())
+
         showNextQuestion()
 
         with(binding) {
